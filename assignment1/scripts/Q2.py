@@ -71,7 +71,7 @@ plt.title("Excitation Response",fontsize=12)
 plt.plot(t[:2514],y[:2514],'b')
 plt.ylabel("Amplitude",fontsize=10)
 plt.xlabel("Time (sec)",fontsize=10)
-plt.savefig("../plots/Question2 Response.png",bbox_inches="tight",pad=-1)
+plt.savefig("../plots/Question2 Response.png",bbox_inches="tight",pad=-1,format="png")
 
 # saving the wav file
 write("../wavfiles/Q2output"+"_".join([str(f_signal),str(f1),str(b1)])+".wav",f_sampling,y)
