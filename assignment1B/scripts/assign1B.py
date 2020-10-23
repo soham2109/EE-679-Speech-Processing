@@ -5,7 +5,7 @@ from scipy.fft import fft,fftfreq
 from math import pi
 from numpy import exp,zeros_like,cos,sin,log10,angle,hamming
 from numpy import convolve as conv
-#import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 
 
 # to view the plots
@@ -14,7 +14,7 @@ from numpy import convolve as conv
 # and in functions hamming and rectnagular
 # uncomment the plt.show (commented) and comment plt.savefig() part
 # to make the plots more TEX-like 
-
+"""
 import matplotlib
 matplotlib.use('PS')
 import pylab as plt
@@ -32,7 +32,7 @@ plt.rcParams['legend.fontsize'] = 10
 plt.rcParams['figure.titlesize'] = 12
 plt.rcParams.update({"axes.facecolor" : "white",
                      "axes.edgecolor":  "black"})
-
+"""
 
 
 
@@ -53,7 +53,7 @@ def generate_signal_response(t,sig,b,a):
         for k in range(1,len(a)):
             if (n-k)>=0:
                 y[n] -= a[k] * y[n-k]     
-    return y
+    return y/np.max(y)
 
 def hamming_window(win_length,fs,output_signal,vowel,f0):
     """
@@ -75,8 +75,8 @@ def hamming_window(win_length,fs,output_signal,vowel,f0):
     plt.xlim(xmin=0)
     plt.grid("True")
     plt.tight_layout()
-    #plt.show()
-    plt.savefig("../plots/Hamming_Window_Freq_resp_"+vowel+"_"+str(f0)+"_"+str(win_length)+".png",bbox_inches="tight",pad=-1,format="png")
+    plt.show()
+    #plt.savefig("../plots/Hamming_Window_Freq_resp_"+vowel+"_"+str(f0)+"_"+str(win_length)+".png",bbox_inches="tight",pad=-1,format="png")
     
     
     
@@ -98,8 +98,8 @@ def rectangular_window(win_length,fs,output_signal,vowel,f0):
     plt.xlim(xmin=0)
     plt.grid("True")
     plt.tight_layout()
-    #plt.show()
-    plt.savefig("../plots/Rect_Window_Freq_resp_"+vowel+"_"+str(f0)+"_"+str(win_length)+".png",bbox_inches="tight",pad=-1,format="png")
+    plt.show()
+    #plt.savefig("../plots/Rect_Window_Freq_resp_"+vowel+"_"+str(f0)+"_"+str(win_length)+".png",bbox_inches="tight",pad=-1,format="png")
     
 def vocal_tract(formant_frequencies,f_sampling):
     """
